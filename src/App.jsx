@@ -1,5 +1,14 @@
+import { Routes, Route } from "react-router-dom";
+import Overview from "./pages/Overview/Overview";
+
 const App = () => {
-  return <h1>Expense Tracker</h1>;
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Overview />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default App;
