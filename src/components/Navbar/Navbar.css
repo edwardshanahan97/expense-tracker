@@ -55,7 +55,7 @@
 
 @media (min-width: 1040px) {
   .navbar {
-    background-color: var(--color-text-primary);
+    background-color: var(--color-primary-light);
     border-top: none;
     width: 25rem;
     top: 0;
@@ -65,7 +65,7 @@
   }
 
   .navbar__logo {
-    color: var(--color-text-light);
+    color: var(--color-text-primary);
     font-size: 2.4rem;
     font-weight: 700;
     display: block;
@@ -95,40 +95,44 @@
   }
 
   .navbar__link svg {
-    stroke: var(--color-text-light);
+    stroke: var(--color-text-primary);
   }
 
   .navbar__link span {
-    color: var(--color-text-light);
+    color: var(--color-text-primary);
     font-size: 1.6rem;
     display: block;
   }
 
   .navbar__link.active {
-    color: var(--color-text-light);
-    background-color: var(--color-text-light);
+    background-color: var(--color-primary);
   }
 
   .navbar__link:hover {
-    color: var(--color-primary);
-    background-color: var(--color-text-light);
+    background-color: var(--color-primary);
   }
 
   .navbar__link.active span {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     font-size: 1.6rem;
     display: block;
   }
 
   .navbar__link:hover svg {
-    stroke: var(--color-primary);
+    stroke: var(--color-text-light);
   }
 
   .navbar__link:hover span {
-    color: var(--color-primary);
+    color: var(--color-text-light);
   }
 
   .navbar__link svg {
+    margin-bottom: 0;
+    width: 2rem;
+  }
+
+  .navbar__link.active svg {
+    stroke: var(--color-text-light);
     margin-bottom: 0;
   }
 
