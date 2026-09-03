@@ -14,7 +14,7 @@ const Navbar = () => {
             to="/"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <Home />
+            <Home strokeWidth={1.5} />
             <span>Overview</span>
           </NavLink>
         </li>
@@ -23,7 +23,7 @@ const Navbar = () => {
             to="/income"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <CircleArrowUp />
+            <CircleArrowUp strokeWidth={1.5} />
             <span>Income</span>
           </NavLink>
         </li>
@@ -32,7 +32,7 @@ const Navbar = () => {
             to="/expenses"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <CircleArrowDown />
+            <CircleArrowDown strokeWidth={1.5} />
             <span>Expenses</span>
           </NavLink>
         </li>
@@ -41,7 +41,7 @@ const Navbar = () => {
             to="/settings"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <Settings />
+            <Settings strokeWidth={1.5} />
             <span>Settings</span>
           </NavLink>
         </li>

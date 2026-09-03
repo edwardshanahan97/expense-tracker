@@ -63,7 +63,21 @@ a {
 }
 
 main {
-  padding-bottom: 8rem;
+  padding: 1.6rem 0;
+}
+
+/* Typography */
+
+.heading-1 {
+  color: var(--color-text-primary);
+  font-size: 2.4rem;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .heading-1 {
+    font-size: 3.2rem;
+  }
 }
 
 @media (min-width: 1040px) {
