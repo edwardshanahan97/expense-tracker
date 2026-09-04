@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 import { usePage } from "../../context/PageContext";
-import "./TransactionButton.css";
+import "./Button.css";
 
 const TransactionButton = () => {
   const { currentPage } = usePage();
@@ -15,12 +15,10 @@ const TransactionButton = () => {
   }
 
   return (
-    <div className="add-transaction">
-      <button className="add-transaction__mobile">
-        <Plus />
-        <span>{title}</span>
-      </button>
-    </div>
+    <button className="button">
+      <Plus color="var(--color-text-light)" />
+      <span className="button__text">{title}</span>
+    </button>
   );
 };
 

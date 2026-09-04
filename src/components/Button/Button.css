@@ -1,7 +1,4 @@
-.add-transaction {
-}
-
-.add-transaction__mobile {
+.button {
   color: var(--color-text-light);
   font-size: 1.4rem;
   font-weight: 700;
@@ -18,7 +15,4 @@
   justify-content: center;
   gap: 0.8rem;
   cursor: pointer;
-}
-
-.add-transaction__mobile span {
 }

@@ -2,7 +2,7 @@ import "./Overview.css";
 import { useEffect } from "react";
 import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
-import TransactionButton from "../../components/TransactionButton/TransactionButton";
+import Button from "../../components/Button/Button";
 
 const Overview = () => {
   const { setCurrentPage } = usePage();
@@ -13,7 +13,7 @@ const Overview = () => {
     <main>
       <OverviewSummary />
 
-      <TransactionButton />
+      <Button />
     </main>
   );
 };
