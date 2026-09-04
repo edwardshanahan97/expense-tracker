@@ -65,6 +65,7 @@ a {
 main {
   margin-top: 2.4rem;
   padding: 0 1.6rem;
+  position: relative;
 }
 
 /* Typography */
