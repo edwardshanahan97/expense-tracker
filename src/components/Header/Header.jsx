@@ -33,21 +33,17 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="header__group">
-        {/* <p className="header__message">Welcome back, Edward</p> */}
+      <h1 className="heading-1">{currentPage}</h1>
 
-        <h1 className="heading-1">{currentPage}</h1>
+      <p className="header__date">
+        <Calendar color="#64748b" size={16} strokeWidth={1.5} />
 
-        <p className="header__date">
-          <Calendar color="#64748b" size={16} strokeWidth={1.5} />
+        <span>{date}</span>
+      </p>
 
-          <span>{date}</span>
-        </p>
-
-        <NavLink className="header__account" to="/settings">
-          ED
-        </NavLink>
-      </div>
+      <NavLink className="header__account" to="/settings">
+        ED
+      </NavLink>
     </header>
   );
 };

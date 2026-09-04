@@ -1,8 +1,5 @@
 .header {
   padding: 1.6rem 1.6rem 0 1.6rem;
-}
-
-.header__group {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,10 +36,28 @@
   }
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 768px) {
+  .header__lead {
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+  }
+
   .header {
     grid-column: 2 / -1;
+    padding: 1.6rem 1.6rem 0 1.6rem;
+  }
+}
 
-    padding: 1.6rem 1.6rem 0 0;
+@media (min-width: 1040px) {
+  .header__lead {
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .header {
+    grid-column: 2 / -1;
+    padding: 1.6rem 3.2rem 0 0;
   }
 }

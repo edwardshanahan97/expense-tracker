@@ -1,0 +1,79 @@
+.overview-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-summary__card {
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 2.4rem;
+  padding: 1.6rem;
+}
+
+.overview-summary__card:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+.overview-summary__icon {
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+  align-self: flex-start;
+}
+
+.overview-summary__balance .overview-summary__icon {
+  background-color: var(--color-primary-light);
+}
+
+.overview-summary__balance .heading-2 {
+  color: var(--color-primary);
+}
+
+.overview-summary__income .overview-summary__icon {
+  background-color: var(--color-income-light);
+}
+
+.overview-summary__income .heading-2 {
+  color: var(--color-income);
+}
+
+.overview-summary__expense .overview-summary__icon {
+  background-color: var(--color-expense-light);
+}
+
+.overview-summary__expense .heading-2 {
+  color: var(--color-expense);
+}
+
+.overview-summary__card .heading-3 {
+  color: var(--color-text-main);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.overview-summary__card .heading-2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.overview-summary__message {
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .overview-summary {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .overview-summary__card {
+    flex-basis: 32%;
+  }
+
+  .overview-summary__card:not(:last-child) {
+    margin-bottom: 0rem;
+  }
+}

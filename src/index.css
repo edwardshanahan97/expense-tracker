@@ -8,7 +8,7 @@
   --color-text-primary: #0f172a;
   --color-text-secondary: #64748b;
   --color-text-light: #e2e8f0;
-  --color-text-lgith-hover: #fff;
+  --color-text-light-hover: #fff;
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
   --color-primary-light: #ede9fe;
@@ -63,7 +63,8 @@ a {
 }
 
 main {
-  padding: 1.6rem 0;
+  margin-top: 2.4rem;
+  padding: 0 1.6rem;
 }
 
 /* Typography */
@@ -84,10 +85,13 @@ main {
   .app {
     display: grid;
     grid-template-columns: 25rem 1fr;
+    grid-template-rows: auto 1fr;
     gap: 3.2rem;
   }
 
   main {
+    margin-top: 0;
+    padding: 0 3.2rem 0 0;
     grid-column: 2 / -1;
   }
 }
