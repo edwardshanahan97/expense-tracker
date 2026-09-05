@@ -1,0 +1,28 @@
+.add-transaction {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  padding: 1.6rem;
+  background-color: #fff;
+}
+
+.add-transaction__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.add-transaction__header .heading-2 {
+  color: var(--color-text-main);
+  font-size: 1.6rem;
+  text-align: center;
+  justify-self: center;
+  flex: 1;
+}
+
+.add-transaction__header svg {
+}

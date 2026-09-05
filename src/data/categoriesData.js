@@ -1,0 +1,25 @@
+export const categoriesData = {
+  income: [
+    "salary",
+    "freelance",
+    "business",
+    "investments",
+    "gifts",
+    "refunds",
+    "other",
+  ],
+  expenses: [
+    "housing",
+    "food & dining",
+    "groceries",
+    "transport",
+    "bills & utilities",
+    "shopping",
+    "entertainment",
+    "health",
+    "education",
+    "travel",
+    "subscriptions",
+    "Other",
+  ],
+};

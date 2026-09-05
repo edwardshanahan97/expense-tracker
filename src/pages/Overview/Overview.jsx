@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
 import Button from "../../components/Button/Button";
+import AddTransaction from "../../components/AddTransaction/AddTransaction";
 
 const Overview = () => {
   const { setCurrentPage } = usePage();
@@ -13,7 +14,9 @@ const Overview = () => {
     <main>
       <OverviewSummary />
 
-      <Button />
+      <AddTransaction />
+
+      <Button isMobile={true} title="Add Transaction" />
     </main>
   );
 };
