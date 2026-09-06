@@ -39,11 +39,11 @@
 }
 
 .overview-summary__expense .overview-summary__icon {
-  background-color: var(--color-expense-light);
+  background-color: var(--color-expenses-light);
 }
 
 .overview-summary__expense .heading-2 {
-  color: var(--color-expense);
+  color: var(--color-expenses);
 }
 
 .overview-summary__card .heading-3 {
@@ -67,6 +67,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 0;
+    grid-column: 1 / -1;
   }
 
   .overview-summary__card {

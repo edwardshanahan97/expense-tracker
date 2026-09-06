@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+  }
+
+  .overview .button--fixed {
+    display: none;
+  }
+}

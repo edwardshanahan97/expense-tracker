@@ -11,12 +11,16 @@ const Overview = () => {
   useEffect(() => setCurrentPage("overview"), []);
 
   return (
-    <main>
+    <main className="overview">
       <OverviewSummary />
 
       <AddTransaction />
 
-      <Button isMobile={true} title="Add Transaction" />
+      <Button
+        className="button--fixed"
+        isMobile={true}
+        title="Add Transaction"
+      />
     </main>
   );
 };

@@ -37,15 +37,15 @@ const AddTransaction = () => {
   return (
     <section className="add-transaction">
       <div className="add-transaction__header">
-        <ArrowLeft />
+        <ArrowLeft className="add-transaction__back" />
 
         <h2 className="heading-2">Add {title}</h2>
       </div>
 
-      <div className="add-transaction__type">
+      <div className="add-transaction__types">
         <button
           onClick={() => setCategory("income")}
-          className="add-transaction__income"
+          className={`add-transaction__type add-transaction__income ${category === "income" ? "active" : ""}`}
         >
           <ArrowUpRight />
 
@@ -54,7 +54,7 @@ const AddTransaction = () => {
 
         <button
           onClick={() => setCategory("expenses")}
-          className="add-transaction__expense"
+          className={`add-transaction__type add-transaction__expenses ${category === "expenses" ? "active" : ""}`}
         >
           <ArrowDownRight />
 
@@ -64,7 +64,7 @@ const AddTransaction = () => {
 
       <div className="add-transaction__form">
         <div className="add-transaction__group">
-          <label className="add-transtion__label" htmlFor="description">
+          <label className="add-transation__label" htmlFor="description">
             Description
           </label>
 
@@ -78,7 +78,7 @@ const AddTransaction = () => {
         </div>
 
         <div className="add-transaction__group">
-          <label className="add-transtion__label" htmlFor="amount">
+          <label className="add-transation__label" htmlFor="amount">
             Amount
           </label>
 
@@ -92,11 +92,14 @@ const AddTransaction = () => {
         </div>
 
         <div className="add-transaction__group">
-          <label className="add-transtion__label" htmlFor="amount">
+          <label className="add-transation__label" htmlFor="category">
             Category
           </label>
 
-          <select>
+          <select
+            id="category"
+            className="add-transaction__input add-transation__category"
+          >
             <option value="">Select Category</option>
             {categories.map((category, index) => (
               <option key={index} value={category}>
@@ -107,11 +110,16 @@ const AddTransaction = () => {
         </div>
 
         <div className="add-transaction__group">
-          <label className="add-transtion__label" htmlFor="amount">
+          <label className="add-transation__label" htmlFor="date">
             Date
           </label>
 
-          <input type="date" max={localDate} />
+          <input
+            type="date"
+            max={localDate}
+            id="date"
+            className="add-transaction__input"
+          />
         </div>
       </div>
 

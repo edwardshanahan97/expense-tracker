@@ -1,18 +1,19 @@
 .add-transaction {
   position: fixed;
+  background-color: #fff;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: 2;
   padding: 1.6rem;
-  background-color: #fff;
 }
 
 .add-transaction__header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2.4rem;
   width: 100%;
 }
 
@@ -24,5 +25,130 @@
   flex: 1;
 }
 
-.add-transaction__header svg {
+.add-transaction__types {
+  display: flex;
+  margin-bottom: 2.4rem;
+}
+
+.add-transaction__type {
+  font-size: 1.4rem;
+  font-family: inherit;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 0;
+  border: 1px solid var(--border-color);
+  flex-basis: 50%;
+  gap: 0.8rem;
+}
+
+.add-transaction__income {
+  color: var(--color-income);
+}
+
+.add-transaction__income.active {
+  background-color: var(--color-income-light);
+}
+
+.add-transaction__income:focus {
+  border-color: var(--color-income);
+}
+
+.add-transaction__expenses {
+  color: var(--color-expenses);
+}
+
+.add-transaction__expenses.active {
+  background-color: var(--color-expenses-light);
+}
+
+.add-transaction__expenses:focus {
+  border-color: var(--color-expenses);
+}
+
+.add-transaction__form {
+  margin-bottom: 2.4rem;
+}
+
+.add-transaction__group:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.add-transation__label {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.add-transaction__input {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  border: 1px solid var(--border-color);
+  padding: 1.6rem;
+  width: 100%;
+}
+
+.add-transaction__input::placeholder {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+}
+
+.add-transaction__input:focus {
+  border-color: var(--color-primary);
+}
+
+.add-transation__category {
+  text-transform: capitalize;
+}
+
+.add-transaction .button {
+  margin-bottom: 2.4rem;
+}
+
+.add-transaction__cancel {
+  color: var(--color-primary);
+  background-color: transparent;
+  font-size: 1.4rem;
+  text-align: center;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .add-transaction {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    background-color: transparent;
+  }
+
+  .add-transaction__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 2.4rem;
+    width: 100%;
+  }
+
+  .add-transaction__header .heading-2 {
+    color: var(--color-text-main);
+    font-size: 1.6rem;
+    text-align: left;
+    justify-self: center;
+    flex: 1;
+  }
+
+  .add-transaction__back {
+    display: none;
+  }
+
+  .add-transaction__cancel {
+    display: none;
+  }
 }
