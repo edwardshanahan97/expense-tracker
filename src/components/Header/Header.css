@@ -14,12 +14,6 @@
   gap: 0.4rem;
 }
 
-.header__lead {
-  color: var(--color-text-secondary);
-  font-size: 1.2rem;
-  margin-top: 0.8rem;
-}
-
 .header__account {
   color: var(--color-text-light);
   font-size: 1.2rem;

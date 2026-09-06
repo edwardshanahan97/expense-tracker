@@ -34,7 +34,7 @@ const OverviewSummary = () => {
 
       <div className="overview-summary__card overview-summary__expense">
         <div className="overview-summary__icon">
-          <TrendingDown color="var(--color-expense)" strokeWidth={1.5} />
+          <TrendingDown color="var(--color-expenses)" strokeWidth={1.5} />
         </div>
 
         <div className="overview-summary__content">
