@@ -5,7 +5,7 @@ import { useState } from "react";
 import { categoriesData } from "../../data/categoriesData";
 import Button from "../Button/Button";
 
-const AddTransaction = () => {
+const AddTransaction = ({ isActive, setIsActive }) => {
   const { currentPage } = usePage();
   const [category, setCategory] = useState("income");
   let categories = [];
@@ -35,9 +35,13 @@ const AddTransaction = () => {
   ].join("-");
 
   return (
-    <section className="add-transaction">
+    <section className={`add-transaction ${isActive ? "active" : ""}`}>
       <div className="add-transaction__header">
-        <ArrowLeft className="add-transaction__back" />
+        <ArrowLeft
+          color="var(--color-text-secondary)"
+          className="add-transaction__back"
+          onClick={() => setIsActive(false)}
+        />
 
         <h2 className="heading-2">Add {title}</h2>
       </div>
@@ -125,7 +129,12 @@ const AddTransaction = () => {
 
       <Button title={`Add ${category}`} />
 
-      <button className="add-transaction__cancel">Cancel</button>
+      <button
+        onClick={() => setIsActive(false)}
+        className="add-transaction__cancel"
+      >
+        Cancel
+      </button>
     </section>
   );
 };

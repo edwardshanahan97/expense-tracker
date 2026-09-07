@@ -1,11 +1,11 @@
 import "./Overview.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
 import Button from "../../components/Button/Button";
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
 
-const Overview = () => {
+const Overview = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
 
   useEffect(() => setCurrentPage("overview"), []);
@@ -14,12 +14,14 @@ const Overview = () => {
     <main className="overview">
       <OverviewSummary />
 
-      <AddTransaction />
+      <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
       <Button
         className="button--fixed"
         isMobile={true}
         title="Add Transaction"
+        isActive={isActive}
+        setIsActive={setIsActive}
       />
     </main>
   );
