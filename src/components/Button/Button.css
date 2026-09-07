@@ -26,3 +26,9 @@
   left: 1.6rem;
   width: auto;
 }
+
+@media (min-width: 768px) {
+  .button--fixed {
+    display: none;
+  }
+}

@@ -46,25 +46,27 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         <h2 className="heading-2">Add {title}</h2>
       </div>
 
-      <div className="add-transaction__types">
-        <button
-          onClick={() => setCategory("income")}
-          className={`add-transaction__type add-transaction__income ${category === "income" ? "active" : ""}`}
-        >
-          <ArrowUpRight />
+      {currentPage === "overview" && (
+        <div className="add-transaction__types">
+          <button
+            onClick={() => setCategory("income")}
+            className={`add-transaction__type add-transaction__income ${category === "income" ? "active" : ""}`}
+          >
+            <ArrowUpRight />
 
-          <span>Income</span>
-        </button>
+            <span>Income</span>
+          </button>
 
-        <button
-          onClick={() => setCategory("expenses")}
-          className={`add-transaction__type add-transaction__expenses ${category === "expenses" ? "active" : ""}`}
-        >
-          <ArrowDownRight />
+          <button
+            onClick={() => setCategory("expenses")}
+            className={`add-transaction__type add-transaction__expenses ${category === "expenses" ? "active" : ""}`}
+          >
+            <ArrowDownRight />
 
-          <span>Expense</span>
-        </button>
-      </div>
+            <span>Expense</span>
+          </button>
+        </div>
+      )}
 
       <div className="add-transaction__form">
         <div className="add-transaction__group">
@@ -127,7 +129,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         </div>
       </div>
 
-      <Button title={`Add ${category}`} />
+      <Button title={`Save ${title}`} />
 
       <button
         onClick={() => setIsActive(false)}
