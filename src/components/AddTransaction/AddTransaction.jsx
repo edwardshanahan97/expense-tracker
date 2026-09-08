@@ -8,23 +8,65 @@ import Button from "../Button/Button";
 const AddTransaction = ({ isActive, setIsActive }) => {
   const { currentPage } = usePage();
   const [category, setCategory] = useState("income");
+  const [error, setError] = useState({
+    description: false,
+    amount: false,
+    category: false,
+    date: false,
+  });
   let categories = [];
   let title = "";
 
   if (currentPage === "overview") {
-    title = "Transaction";
+    title = category;
     if (category === "income") {
       categories = categoriesData.income;
     } else if (category === "expenses") {
       categories = categoriesData.expenses;
     }
   } else if (currentPage === "income") {
-    title = "Income";
+    title = category;
     categories = categoriesData.income;
   } else if (currentPage === "expenses") {
-    title = "Expenses";
+    title = category;
     categories = categoriesData.expenses;
   }
+
+  const handleForm = (event) => {
+    event.preventDefault();
+
+    const description = event.target.elements.description.value.trim();
+    const amount = event.target.elements.amount.value;
+    const categoryValue = event.target.elements.category.value;
+    const dateValue = event.target.elements.date.value;
+
+    const isDescriptionValid = description !== "";
+    const isAmountValid = amount !== "" && amount > 0;
+    const isCategoryValid = categoryValue !== "";
+    const isDateValid = dateValue !== "";
+
+    if (
+      !isDescriptionValid ||
+      !isAmountValid ||
+      !isCategoryValid ||
+      !isDateValid
+    ) {
+      setError({
+        description: !isDescriptionValid,
+        amount: !isAmountValid,
+        category: !isCategoryValid,
+        date: !isDateValid,
+      });
+      return;
+    } else {
+      setError({
+        description: false,
+        amount: false,
+        category: false,
+        date: false,
+      });
+    }
+  };
 
   const today = new Date();
 
@@ -68,43 +110,64 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         </div>
       )}
 
-      <div className="add-transaction__form">
+      <form
+        id="add-transaction"
+        onSubmit={handleForm}
+        className="add-transaction__form"
+        noValidate
+      >
         <div className="add-transaction__group">
           <label className="add-transation__label" htmlFor="description">
             Description
+            {error.description && (
+              <span className="add-transaction__error">
+                Description is required
+              </span>
+            )}
           </label>
 
           <input
             id="description"
             type="text"
             placeholder="eg. Salery"
-            className="add-transaction__input"
+            className={`add-transaction__input ${error.description && "error"}`}
             name="description"
+            required
           />
         </div>
 
         <div className="add-transaction__group">
           <label className="add-transation__label" htmlFor="amount">
             Amount
+            {error.amount && (
+              <span className="add-transaction__error">Amount is required</span>
+            )}
           </label>
 
           <input
             id="amount"
             type="number"
             placeholder="0.00"
-            className="add-transaction__input"
+            className={`add-transaction__input ${error.amount && "error"}`}
             name="amount"
+            required
           />
         </div>
 
         <div className="add-transaction__group">
           <label className="add-transation__label" htmlFor="category">
             Category
+            {error.category && (
+              <span className="add-transaction__error">
+                Please select a category
+              </span>
+            )}
           </label>
 
           <select
             id="category"
-            className="add-transaction__input add-transation__category"
+            className={`add-transaction__input add-transaction__category ${error.category && "error"}`}
+            required
           >
             <option value="">Select Category</option>
             {categories.map((category, index) => (
@@ -118,18 +181,22 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         <div className="add-transaction__group">
           <label className="add-transation__label" htmlFor="date">
             Date
+            {error.date && (
+              <span className="add-transaction__error">Date is required</span>
+            )}
           </label>
 
           <input
             type="date"
             max={localDate}
             id="date"
-            className="add-transaction__input"
+            className={`add-transaction__input ${error.date && "error"}`}
+            required
           />
         </div>
-      </div>
+      </form>
 
-      <Button title={`Save ${title}`} />
+      <Button form={"add-transaction"} title={`Save ${category}`} />
 
       <button
         onClick={() => setIsActive(false)}

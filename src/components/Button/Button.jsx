@@ -1,9 +1,17 @@
 import { Plus } from "lucide-react";
 import "./Button.css";
 
-const Button = ({ title, isMobile, className, isActive, setIsActive }) => {
+const Button = ({
+  title,
+  isMobile,
+  className,
+  isActive,
+  setIsActive,
+  form,
+}) => {
   return (
     <button
+      form={form}
       onClick={setIsActive ? () => setIsActive(!isActive) : undefined}
       className={`button ${className}`}
     >

@@ -101,7 +101,9 @@
   color: var(--color-text-secondary);
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .add-transaction__input {
@@ -123,6 +125,10 @@
   outline: var(--color-primary);
 }
 
+.add-transaction__input.error {
+  border-color: var(--color-expenses);
+}
+
 .add-transation__category {
   text-transform: capitalize;
 }
@@ -140,6 +146,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.add-transaction__error {
+  color: var(--color-expenses);
+  font-size: 1.2rem;
 }
 
 @media (min-width: 768px) {
