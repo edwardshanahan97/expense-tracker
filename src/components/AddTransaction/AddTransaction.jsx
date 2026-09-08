@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 
 const AddTransaction = ({ isActive, setIsActive }) => {
   const { currentPage } = usePage();
-  const [category, setCategory] = useState("income");
+  const [transactionType, setTransactionType] = useState("income");
   const [error, setError] = useState({
     description: false,
     amount: false,
@@ -15,20 +15,20 @@ const AddTransaction = ({ isActive, setIsActive }) => {
     date: false,
   });
   let categories = [];
-  let title = "";
+  let type = "";
 
   if (currentPage === "overview") {
-    title = category;
-    if (category === "income") {
+    type = transactionType;
+    if (transactionType === "income") {
       categories = categoriesData.income;
-    } else if (category === "expenses") {
+    } else if (transactionType === "expenses") {
       categories = categoriesData.expenses;
     }
   } else if (currentPage === "income") {
-    title = category;
+    type = "income";
     categories = categoriesData.income;
   } else if (currentPage === "expenses") {
-    title = category;
+    type = "expenses";
     categories = categoriesData.expenses;
   }
 
@@ -85,14 +85,14 @@ const AddTransaction = ({ isActive, setIsActive }) => {
           onClick={() => setIsActive(false)}
         />
 
-        <h2 className="heading-2">Add {title}</h2>
+        <h2 className="heading-2">Add {type}</h2>
       </div>
 
       {currentPage === "overview" && (
         <div className="add-transaction__types">
           <button
-            onClick={() => setCategory("income")}
-            className={`add-transaction__type add-transaction__income ${category === "income" ? "active" : ""}`}
+            onClick={() => setTransactionType("income")}
+            className={`add-transaction__type add-transaction__income ${transactionType === "income" ? "active" : ""}`}
           >
             <ArrowUpRight />
 
@@ -100,8 +100,8 @@ const AddTransaction = ({ isActive, setIsActive }) => {
           </button>
 
           <button
-            onClick={() => setCategory("expenses")}
-            className={`add-transaction__type add-transaction__expenses ${category === "expenses" ? "active" : ""}`}
+            onClick={() => setTransactionType("expenses")}
+            className={`add-transaction__type add-transaction__expenses ${transactionType === "expenses" ? "active" : ""}`}
           >
             <ArrowDownRight />
 
@@ -196,7 +196,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         </div>
       </form>
 
-      <Button form={"add-transaction"} title={`Save ${category}`} />
+      <Button form={"add-transaction"} title={`Save ${type}`} />
 
       <button
         onClick={() => setIsActive(false)}
