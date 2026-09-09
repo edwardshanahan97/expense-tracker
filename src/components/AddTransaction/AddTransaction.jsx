@@ -4,6 +4,7 @@ import "./AddTransaction.css";
 import { useState } from "react";
 import { categoriesData } from "../../data/categoriesData";
 import Button from "../Button/Button";
+import { useFinance } from "../../context/FinanceContext";
 
 const AddTransaction = ({ isActive, setIsActive }) => {
   const { currentPage } = usePage();
@@ -16,6 +17,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
   });
   let categories = [];
   let type = "";
+  const { addTransaction } = useFinance();
 
   if (currentPage === "overview") {
     type = transactionType;
@@ -44,6 +46,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
     const isAmountValid = amount !== "" && amount > 0;
     const isCategoryValid = categoryValue !== "";
     const isDateValid = dateValue !== "";
+    const amountValue = Number(amount);
 
     if (
       !isDescriptionValid ||
@@ -64,6 +67,15 @@ const AddTransaction = ({ isActive, setIsActive }) => {
         amount: false,
         category: false,
         date: false,
+      });
+
+      addTransaction({
+        description,
+        amountValue,
+        categoryValue,
+        dateValue,
+        type,
+        id: crypto.randomUUID(),
       });
     }
   };

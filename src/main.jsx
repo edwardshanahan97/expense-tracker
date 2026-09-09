@@ -4,16 +4,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { PageProvider } from "./context/PageContext.jsx";
-import { FinanceProverider } from "./context/FinanceContext.jsx";
+import { FinanceProvider } from "./context/FinanceContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <FinanceProverider>
+      <FinanceProvider>
         <PageProvider>
           <App />
         </PageProvider>
-      </FinanceProverider>
+      </FinanceProvider>
     </BrowserRouter>
   </StrictMode>,
 );
