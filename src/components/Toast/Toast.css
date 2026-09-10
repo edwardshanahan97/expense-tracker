@@ -1,0 +1,31 @@
+.toast {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-dark);
+  text-transform: capitalize;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0rem;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1.6rem 5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s;
+  z-index: 3;
+}
+
+.toast.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast__message {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .toast__message {
+    font-size: 1.6rem;
+  }
+}

@@ -1,8 +1,11 @@
 import { createContext, useContext, useState } from "react";
+import { useToast } from "./ToastContext";
 
 const FinanceContext = createContext();
 
 export const FinanceProvider = ({ children }) => {
+  const { setMessage, setShowToast } = useToast();
+
   const [finance, setFinance] = useState({
     name: "",
     currency: "EURO",
@@ -15,7 +18,9 @@ export const FinanceProvider = ({ children }) => {
       transactions: [...prev.transactions, transaction],
     }));
 
-    console.log(finance);
+    setShowToast(true);
+
+    setMessage(`${transaction.category} added`);
   };
 
   return (

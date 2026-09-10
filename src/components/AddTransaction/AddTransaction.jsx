@@ -1,10 +1,10 @@
-import { ArrowDownRight, ArrowLeft, ArrowUpRight } from "lucide-react";
-import { usePage } from "../../context/PageContext";
 import "./AddTransaction.css";
 import { useState } from "react";
 import { categoriesData } from "../../data/categoriesData";
-import Button from "../Button/Button";
 import { useFinance } from "../../context/FinanceContext";
+import { usePage } from "../../context/PageContext";
+import Button from "../Button/Button";
+import { ArrowDownRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 
 const AddTransaction = ({ isActive, setIsActive }) => {
   const { currentPage } = usePage();
@@ -70,13 +70,17 @@ const AddTransaction = ({ isActive, setIsActive }) => {
       });
 
       addTransaction({
-        description,
-        amountValue,
-        categoryValue,
-        dateValue,
-        type,
+        description: description,
+        amount: amountValue,
+        category: categoryValue,
+        date: dateValue,
+        type: type,
         id: crypto.randomUUID(),
       });
+
+      setIsActive(false);
+
+      event.target.reset();
     }
   };
 

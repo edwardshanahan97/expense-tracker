@@ -5,15 +5,18 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { PageProvider } from "./context/PageContext.jsx";
 import { FinanceProvider } from "./context/FinanceContext.jsx";
+import { ToastProvider } from "./context/ToastContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <FinanceProvider>
-        <PageProvider>
-          <App />
-        </PageProvider>
-      </FinanceProvider>
+      <ToastProvider>
+        <FinanceProvider>
+          <PageProvider>
+            <App />
+          </PageProvider>
+        </FinanceProvider>
+      </ToastProvider>
     </BrowserRouter>
   </StrictMode>,
 );
