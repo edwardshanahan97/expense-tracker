@@ -121,7 +121,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
           >
             <ArrowDownRight />
 
-            <span>Expense</span>
+            <span>Expenses</span>
           </button>
         </div>
       )}
