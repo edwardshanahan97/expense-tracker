@@ -1,0 +1,73 @@
+.transactions-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 1.2rem;
+
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+}
+
+.transactions-item__icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+.transactions-item__income {
+  color: var(--color-income);
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.transactions-item__expense {
+  color: var(--color-expenses);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.transactions-item__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  min-width: 0;
+}
+
+.transactions-item__description {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.transactions-item__category {
+  color: var(--color-text-secondary);
+  font-size: 1.3rem;
+}
+
+.transactions-item__date {
+  color: var(--color-text-secondary);
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+.transactions-item__amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (min-width: 1040px) {
+  .transactions-item {
+    gap: 1.6rem;
+  }
+
+  .transactions-item__description,
+  .transactions-item__amount {
+    font-size: 1.6rem;
+  }
+
+  .transactions-item__date {
+    font-size: 1.4rem;
+  }
+}

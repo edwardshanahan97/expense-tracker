@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./RecentTransaction.css";
-import { ArrowDown, ArrowUp } from "lucide-react";
+
 import formatDate from "../../utils/formatDate";
+import TransactionItem from "../TransactionItem/TransactionItem";
 
 const RecentTransactions = ({ title, transactions }) => {
   const recentTransaction = transactions
@@ -18,27 +19,15 @@ const RecentTransactions = ({ title, transactions }) => {
       <ul className="recent-transactions__list">
         {recentTransaction.map(
           ({ id, type, description, amount, category, date }) => (
-            <li className="recent-transactions__item" key={id}>
-              {type === "income" ? (
-                <ArrowUp className="recent-transaction__icon recent-transaction__income" />
-              ) : (
-                <ArrowDown className="recent-transaction__icon recent-transaction__expense" />
-              )}
-
-              <div className="recent-transaction__group">
-                <span className="recent-transaction__description">
-                  {description}
-                </span>
-
-                <span className="recent-transaction__category">{category}</span>
-              </div>
-
-              <span className="recent-transaction__date">
-                {formatDate(date)}
-              </span>
-
-              <span className="recent-transaction__amount">€{amount}</span>
-            </li>
+            <TransactionItem
+              key={id}
+              id={id}
+              type={type}
+              description={description}
+              amount={amount}
+              category={category}
+              date={formatDate(date)}
+            />
           ),
         )}
       </ul>
