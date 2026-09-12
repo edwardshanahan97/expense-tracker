@@ -1,57 +1,42 @@
-import { Wallet, TrendingUp, TrendingDown } from "lucide-react";
 import "./OverviewSummary.css";
 import { useFinance } from "../../../context/FinanceContext";
+import SummaryCard from "../../../components/SummaryCard/SummaryCard";
+import { Wallet, TrendingUp, TrendingDown } from "lucide-react";
 
 const OverviewSummary = () => {
   const { getBalance, thisMonthIncome, thisMonthExpenses } = useFinance();
-
   const balance = getBalance();
   const totalIncome = thisMonthIncome();
   const totalExpenses = thisMonthExpenses();
 
   return (
     <section className="overview-summary">
-      <div className="overview-summary__card overview-summary__balance">
-        <div className="overview-summary__icon">
-          <Wallet color="var(--color-primary)" strokeWidth={1.5} />
-        </div>
+      <SummaryCard
+        icon={<Wallet color="var(--color-primary)" strokeWidth={1.5} />}
+        title="Current Balance"
+        amount={balance}
+        text="Your Balance"
+        color="var(--color-primary)"
+        bgColor="var(--color-primary-light)"
+      />
 
-        <div className="overview-summary__content">
-          <h3 className="heading-3">Current Balance</h3>
+      <SummaryCard
+        icon={<TrendingUp color="var(--color-income)" strokeWidth={1.5} />}
+        title="Total Income"
+        amount={totalIncome}
+        text="This Month"
+        color="var(--color-income)"
+        bgColor="var(--color-income-light)"
+      />
 
-          <h2 className="heading-2">€{balance}</h2>
-
-          <p className="overview-summary__message">Your Balnace</p>
-        </div>
-      </div>
-
-      <div className="overview-summary__card overview-summary__income">
-        <div className="overview-summary__icon">
-          <TrendingUp color="var(--color-income)" strokeWidth={1.5} />
-        </div>
-
-        <div className="overview-summary__content">
-          <h3 className="heading-3">Total Income</h3>
-
-          <h2 className="heading-2">€{totalIncome}</h2>
-
-          <p className="overview-summary__message">This Month</p>
-        </div>
-      </div>
-
-      <div className="overview-summary__card overview-summary__expense">
-        <div className="overview-summary__icon">
-          <TrendingDown color="var(--color-expenses)" strokeWidth={1.5} />
-        </div>
-
-        <div className="overview-summary__content">
-          <h3 className="heading-3">Total Expenses</h3>
-
-          <h2 className="heading-2">€{totalExpenses}</h2>
-
-          <p className="overview-summary__message">This Month</p>
-        </div>
-      </div>
+      <SummaryCard
+        icon={<TrendingDown color="var(--color-expenses)" strokeWidth={1.5} />}
+        title="Total Expenses"
+        amount={totalExpenses}
+        text="This Month"
+        color="var(--color-expenses)"
+        bgColor="var(--color-expenses-light)"
+      />
     </section>
   );
 };
