@@ -66,12 +66,9 @@ a {
 
 main {
   margin-top: 2.4rem;
-
   padding-inline: 1.6rem;
   padding-bottom: 15rem;
-
   position: relative;
-
   display: grid;
   gap: 2.4rem;
 }
@@ -87,13 +84,14 @@ main {
 
 .heading-2 {
   color: var(--color-text-primary);
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-bottom: 0.8rem;
+  text-transform: capitalize;
 }
 
 .heading-3 {
   color: var(--color-text-primary);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 0.8rem;
 }
 
@@ -109,6 +107,14 @@ svg {
   .heading-1 {
     font-size: 3.2rem;
   }
+
+  .heading-2 {
+    font-size: 2rem;
+  }
+
+  .heading-3 {
+    font-size: 1.6rem;
+  }
 }
 
 @media (min-width: 1040px) {
@@ -116,17 +122,14 @@ svg {
     display: grid;
     grid-template-columns: 25rem minmax(0, 1fr);
     grid-template-rows: auto 1fr;
-    gap: 3.2rem;
-
+    gap: 1.6rem;
     align-items: start;
   }
 
   main {
     grid-column: 2 / -1;
-
     margin-top: 0;
-
-    padding-inline: 3.2rem;
+    padding-inline: 2.4rem;
     padding-bottom: 4rem;
   }
 }

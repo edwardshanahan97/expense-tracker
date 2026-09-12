@@ -4,13 +4,10 @@
   gap: 2.4rem;
 }
 
-@media (min-width: 768px) {
+/* Desktop */
+@media (min-width: 1040px) {
   .overview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
-  }
-
-  .overview .button--fixed {
-    display: none;
   }
 }
