@@ -1,7 +1,14 @@
 import { Wallet, TrendingUp, TrendingDown } from "lucide-react";
 import "./OverviewSummary.css";
+import { useFinance } from "../../../context/FinanceContext";
 
 const OverviewSummary = () => {
+  const { getBalance, thisMonthIncome, thisMonthExpenses } = useFinance();
+
+  const balance = getBalance();
+  const totalIncome = thisMonthIncome();
+  const totalExpenses = thisMonthExpenses();
+
   return (
     <section className="overview-summary">
       <div className="overview-summary__card overview-summary__balance">
@@ -12,7 +19,7 @@ const OverviewSummary = () => {
         <div className="overview-summary__content">
           <h3 className="heading-3">Current Balance</h3>
 
-          <h2 className="heading-2">€200</h2>
+          <h2 className="heading-2">€{balance}</h2>
 
           <p className="overview-summary__message">Your Balnace</p>
         </div>
@@ -26,7 +33,7 @@ const OverviewSummary = () => {
         <div className="overview-summary__content">
           <h3 className="heading-3">Total Income</h3>
 
-          <h2 className="heading-2">€400</h2>
+          <h2 className="heading-2">€{totalIncome}</h2>
 
           <p className="overview-summary__message">This Month</p>
         </div>
@@ -40,7 +47,7 @@ const OverviewSummary = () => {
         <div className="overview-summary__content">
           <h3 className="heading-3">Total Expenses</h3>
 
-          <h2 className="heading-2">€100</h2>
+          <h2 className="heading-2">€{totalExpenses}</h2>
 
           <p className="overview-summary__message">This Month</p>
         </div>

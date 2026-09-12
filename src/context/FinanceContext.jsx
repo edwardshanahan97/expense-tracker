@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useToast } from "./ToastContext";
+import getMonthlyTotal from "../utils/getMonthlyTotal";
 
 const FinanceContext = createContext();
 
@@ -28,8 +29,27 @@ export const FinanceProvider = ({ children }) => {
     setMessage(`${transaction.category} added`);
   };
 
+  const getBalance = () => {
+    const totalIncome = finance.transactions
+      .filter((transaction) => transaction.type === "income")
+      .reduce((acc, value) => acc + value.amount, 0);
+
+    const totalExpenses = finance.transactions
+      .filter((transaction) => transaction.type === "expenses")
+      .reduce((acc, value) => acc + value.amount, 0);
+
+    return totalIncome - totalExpenses;
+  };
+
+  const thisMonthIncome = () => getMonthlyTotal(finance.transactions, "income");
+
+  const thisMonthExpenses = () =>
+    getMonthlyTotal(finance.transactions, "expenses");
+
   return (
-    <FinanceContext.Provider value={{ addTransaction }}>
+    <FinanceContext.Provider
+      value={{ addTransaction, getBalance, thisMonthIncome, thisMonthExpenses }}
+    >
       {children}
     </FinanceContext.Provider>
   );
