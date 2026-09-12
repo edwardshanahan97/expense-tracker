@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./RecentTransaction.css";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import formatDate from "../../utils/formatDate";
 
 const RecentTransactions = ({ title, transactions }) => {
   const recentTransaction = transactions
@@ -32,7 +33,9 @@ const RecentTransactions = ({ title, transactions }) => {
                 <span className="recent-transaction__category">{category}</span>
               </div>
 
-              <span className="recent-transaction__date">{date}</span>
+              <span className="recent-transaction__date">
+                {formatDate(date)}
+              </span>
 
               <span className="recent-transaction__amount">€{amount}</span>
             </li>

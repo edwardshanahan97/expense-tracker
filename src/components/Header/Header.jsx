@@ -2,34 +2,11 @@ import "./Header.css";
 import { Calendar } from "lucide-react";
 import { usePage } from "../../context/PageContext";
 import { NavLink } from "react-router-dom";
+import formatDate from "../../utils/formatDate";
 
 const Header = () => {
   const { currentPage } = usePage();
-  const dateObj = new Date();
-
-  const month = dateObj
-    .toLocaleString("default", { month: "long" })
-    .slice(0, 3);
-  const year = dateObj.getFullYear();
-  const day = dateObj.getDate();
-  const nthNumber = (number) => {
-    if (number > 3 && number < 21) {
-      return "th";
-    }
-
-    switch (number % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
-    }
-  };
-
-  const date = `${day}${nthNumber(day)} ${month}, ${year}`;
+  const date = formatDate(new Date());
 
   return (
     <header className="header">
