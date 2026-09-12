@@ -48,7 +48,13 @@ export const FinanceProvider = ({ children }) => {
 
   return (
     <FinanceContext.Provider
-      value={{ addTransaction, getBalance, thisMonthIncome, thisMonthExpenses }}
+      value={{
+        finance,
+        addTransaction,
+        getBalance,
+        thisMonthIncome,
+        thisMonthExpenses,
+      }}
     >
       {children}
     </FinanceContext.Provider>

@@ -1,10 +1,12 @@
 .navbar {
+  background-color: #fff;
   border-top: 1px solid var(--border-color);
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1.6rem 3.2rem;
+  z-index: 4;
 }
 
 .navbar__logo {
@@ -56,6 +58,7 @@
 
 @media (min-width: 1040px) {
   .navbar {
+    background-color: transparent;
     background-color: var(--color-primary-light);
     border-top: none;
     width: 25rem;

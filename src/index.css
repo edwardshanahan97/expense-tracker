@@ -66,6 +66,10 @@ main {
   margin-top: 2.4rem;
   padding: 0 1.6rem;
   position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 2.4rem;
+  padding-bottom: 15rem;
 }
 
 /* Typography */
@@ -99,5 +103,6 @@ svg {
     margin-top: 0;
     padding: 0 3.2rem 0 0;
     grid-column: 2 / -1;
+    align-items: start;
   }
 }

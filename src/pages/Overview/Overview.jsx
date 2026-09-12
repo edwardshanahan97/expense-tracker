@@ -4,9 +4,12 @@ import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
 import Button from "../../components/Button/Button";
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
+import RecentTransactions from "../../components/RecentTransactions/RecentTransactions";
+import { useFinance } from "../../context/FinanceContext";
 
 const Overview = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
+  const { finance } = useFinance();
 
   useEffect(() => setCurrentPage("overview"), []);
 
@@ -15,6 +18,11 @@ const Overview = ({ isActive, setIsActive }) => {
       <OverviewSummary />
 
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
+
+      <RecentTransactions
+        title="Recent Transaction"
+        transactions={finance.transactions}
+      />
 
       <Button
         className="button--fixed"
