@@ -1,18 +1,27 @@
 .overview-summary {
-  display: flex;
-  flex-direction: column;
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 2.4rem;
 }
 
 @media (min-width: 768px) {
   .overview-summary {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0;
-    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .overview-summary .summary-card {
-    flex-basis: 32%;
+  .overview-summary > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1040px) {
+  .overview-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .overview-summary > :last-child {
+    grid-column: auto;
   }
 }
