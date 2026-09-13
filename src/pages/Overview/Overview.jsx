@@ -4,12 +4,16 @@ import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
 import Button from "../../components/Button/Button";
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
-import RecentTransactions from "../../components/RecentTransactions/RecentTransactions";
 import { useFinance } from "../../context/FinanceContext";
+import Transactions from "../../components/Transactions/Transactions";
 
 const Overview = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
   const { finance } = useFinance();
+
+  const recentTransaction = finance.transactions
+    .slice(-5)
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   useEffect(() => setCurrentPage("overview"), []);
 
@@ -19,9 +23,11 @@ const Overview = ({ isActive, setIsActive }) => {
 
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
-      <RecentTransactions
+      <Transactions
         title="Recent Transaction"
-        transactions={finance.transactions}
+        transactions={recentTransaction}
+        link="View All"
+        to="/all-transaction"
       />
 
       <Button

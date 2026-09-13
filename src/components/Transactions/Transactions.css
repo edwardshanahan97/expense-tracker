@@ -1,17 +1,17 @@
-.recent-transactions {
-  border-radius: 0.8rem;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+.transactions {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   padding: 1.6rem;
 }
 
-.recent-transaction__header {
+.transactions__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.6rem;
 }
 
-.recent-transaction__header a {
+.transactions a {
   color: var(--color-primary);
   font-size: 1.2rem;
   font-weight: 500;
@@ -19,7 +19,7 @@
   white-space: nowrap;
 }
 
-.recent-transactions__list {
+.transactions__list {
   list-style: none;
   margin: 0;
   padding: 0;
