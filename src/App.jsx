@@ -6,6 +6,7 @@ import { useState } from "react";
 import Income from "./pages/Income/Income";
 import Expenses from "./pages/Expenses/Expenses";
 import Toast from "./components/Toast/Toast";
+import AllTransactions from "./pages/AllTransactions/AllTransactions";
 
 const App = () => {
   const [isActive, setIsActive] = useState(false);
@@ -31,6 +32,8 @@ const App = () => {
           path="/expenses"
           element={<Expenses isActive={isActive} setIsActive={setIsActive} />}
         />
+
+        <Route path="/all-transaction" element={<AllTransactions />} />
       </Routes>
 
       <Toast message="Hello World" />

@@ -1,4 +1,10 @@
-import { Home, CircleArrowUp, CircleArrowDown, Settings } from "lucide-react";
+import {
+  Home,
+  CircleArrowUp,
+  CircleArrowDown,
+  Settings,
+  CircleDollarSign,
+} from "lucide-react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 const Navbar = () => {
@@ -14,8 +20,18 @@ const Navbar = () => {
             to="/"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <Home strokeWidth={1.5} />
+            <Home />
             <span>Overview</span>
+          </NavLink>
+        </li>
+
+        <li className="navbar__item">
+          <NavLink
+            to="/all-transaction"
+            className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
+          >
+            <CircleDollarSign />
+            <span>All Transaction</span>
           </NavLink>
         </li>
         <li className="navbar__item">
@@ -23,7 +39,7 @@ const Navbar = () => {
             to="/income"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <CircleArrowUp strokeWidth={1.5} />
+            <CircleArrowUp />
             <span>Income</span>
           </NavLink>
         </li>
@@ -32,7 +48,7 @@ const Navbar = () => {
             to="/expenses"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <CircleArrowDown strokeWidth={1.5} />
+            <CircleArrowDown />
             <span>Expenses</span>
           </NavLink>
         </li>
@@ -41,7 +57,7 @@ const Navbar = () => {
             to="/settings"
             className={`navbar__link ({ isActive }) => (isActive ? 'active' : 'inactive')`}
           >
-            <Settings strokeWidth={1.5} />
+            <Settings />
             <span>Settings</span>
           </NavLink>
         </li>

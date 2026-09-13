@@ -1,17 +1,18 @@
-import { useFinance } from "../../../context/FinanceContext";
 import SummaryCard from "../../../components/SummaryCard/SummaryCard";
 import { Wallet, TrendingUp, TrendingDown } from "lucide-react";
+import { useFinance } from "../../../context/FinanceContext";
 
-const OverviewSummary = () => {
-  const { getBalance, thisMonthIncome, thisMonthExpenses } = useFinance();
+const TransactionSummary = () => {
+  const { getBalance, getTotalIncome, getTotalExpenses } = useFinance();
+
   const balance = getBalance();
-  const totalIncome = thisMonthIncome();
-  const totalExpenses = thisMonthExpenses();
+  const totalIncome = getTotalIncome();
+  const totalExpenses = getTotalExpenses();
 
   return (
-    <section className="summary-grid">
+    <section className="transactions-summary">
       <SummaryCard
-        icon={<Wallet color="var(--color-primary)" strokeWidth={1.5} />}
+        icon={<Wallet color="var(--color-primary)" />}
         title="Current Balance"
         amount={balance}
         text="Your Balance"
@@ -20,19 +21,19 @@ const OverviewSummary = () => {
       />
 
       <SummaryCard
-        icon={<TrendingUp color="var(--color-income)" strokeWidth={1.5} />}
+        icon={<TrendingUp color="var(--color-income)" />}
         title="Total Income"
         amount={totalIncome}
-        text="This Month"
+        text="All Time"
         color="var(--color-income)"
         bgColor="var(--color-income-light)"
       />
 
       <SummaryCard
-        icon={<TrendingDown color="var(--color-expenses)" strokeWidth={1.5} />}
+        icon={<TrendingDown color="var(--color-expenses)" />}
         title="Total Expenses"
         amount={totalExpenses}
-        text="This Month"
+        text="All Time"
         color="var(--color-expenses)"
         bgColor="var(--color-expenses-light)"
       />
@@ -40,4 +41,4 @@ const OverviewSummary = () => {
   );
 };
 
-export default OverviewSummary;
+export default TransactionSummary;
