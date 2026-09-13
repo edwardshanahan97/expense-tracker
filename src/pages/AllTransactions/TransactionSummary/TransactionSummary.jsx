@@ -10,7 +10,7 @@ const TransactionSummary = () => {
   const totalExpenses = getTotalExpenses();
 
   return (
-    <section className="transactions-summary">
+    <section className="summary-grid">
       <SummaryCard
         icon={<Wallet color="var(--color-primary)" />}
         title="Current Balance"

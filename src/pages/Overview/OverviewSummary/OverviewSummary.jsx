@@ -11,7 +11,7 @@ const OverviewSummary = () => {
   return (
     <section className="summary-grid">
       <SummaryCard
-        icon={<Wallet color="var(--color-primary)" strokeWidth={1.5} />}
+        icon={<Wallet color="var(--color-primary)" />}
         title="Current Balance"
         amount={balance}
         text="Your Balance"
@@ -20,7 +20,7 @@ const OverviewSummary = () => {
       />
 
       <SummaryCard
-        icon={<TrendingUp color="var(--color-income)" strokeWidth={1.5} />}
+        icon={<TrendingUp color="var(--color-income)" />}
         title="Total Income"
         amount={totalIncome}
         text="This Month"
@@ -29,7 +29,7 @@ const OverviewSummary = () => {
       />
 
       <SummaryCard
-        icon={<TrendingDown color="var(--color-expenses)" strokeWidth={1.5} />}
+        icon={<TrendingDown color="var(--color-expenses)" />}
         title="Total Expenses"
         amount={totalExpenses}
         text="This Month"
