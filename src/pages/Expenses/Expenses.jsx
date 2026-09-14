@@ -7,6 +7,7 @@ import Transactions from "../../components/Transactions/Transactions";
 import { useFinance } from "../../context/FinanceContext";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination/Pagination";
+import ExpensesSummary from "./ExpensesSummary/IncomeSummary";
 
 const Expenses = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
@@ -24,6 +25,8 @@ const Expenses = ({ isActive, setIsActive }) => {
   useEffect(() => setCurrentPage("expenses"), []);
   return (
     <main className="grid">
+      <ExpensesSummary />
+
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
       <Transactions title="Recent Expenses" transactions={recentTransaction} />

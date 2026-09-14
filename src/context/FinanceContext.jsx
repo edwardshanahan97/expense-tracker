@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useToast } from "./ToastContext";
 import getMonthlyTotal from "../utils/getMonthlyTotal";
 import getTotal from "../utils/getTotal";
+import getMonthlyCount from "../utils/getMonthlyCount";
 
 const FinanceContext = createContext();
 
@@ -44,12 +45,17 @@ export const FinanceProvider = ({ children }) => {
 
   const thisMonthIncome = () => getMonthlyTotal(finance.transactions, "income");
 
+  const getIncomeCount = () => getMonthlyCount(finance.transactions, "income");
+
   const thisMonthExpenses = () =>
     getMonthlyTotal(finance.transactions, "expenses");
 
   const getTotalIncome = () => getTotal(finance.transactions, "income");
 
   const getTotalExpenses = () => getTotal(finance.transactions, "expenses");
+
+  const getExpensesCount = () =>
+    getMonthlyCount(finance.transactions, "expenses");
 
   return (
     <FinanceContext.Provider
@@ -61,6 +67,8 @@ export const FinanceProvider = ({ children }) => {
         thisMonthExpenses,
         getTotalIncome,
         getTotalExpenses,
+        getIncomeCount,
+        getExpensesCount,
       }}
     >
       {children}
