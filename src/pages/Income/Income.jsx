@@ -23,14 +23,16 @@ const Income = ({ isActive, setIsActive }) => {
 
   useEffect(() => setCurrentPage("income"), []);
   return (
-    <main>
+    <main className="grid">
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
       <Transactions title="Recent Income" transactions={recentTransaction} />
 
-      <Transactions title="All Income" transactions={currentItems} />
+      <div>
+        <Transactions title="All Income" transactions={currentItems} />
 
-      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+        <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      </div>
 
       <Button
         className="button--fixed"

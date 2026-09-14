@@ -1,4 +1,3 @@
-import "./Overview.css";
 import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
@@ -18,7 +17,7 @@ const Overview = ({ isActive, setIsActive }) => {
   useEffect(() => setCurrentPage("overview"), []);
 
   return (
-    <main className="overview">
+    <main className="grid">
       <OverviewSummary />
 
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />

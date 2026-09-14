@@ -23,14 +23,16 @@ const Expenses = ({ isActive, setIsActive }) => {
 
   useEffect(() => setCurrentPage("expenses"), []);
   return (
-    <main>
+    <main className="grid">
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
       <Transactions title="Recent Expenses" transactions={recentTransaction} />
 
-      <Transactions title="All Expenses" transactions={currentItems} />
+      <div>
+        <Transactions title="All Expenses" transactions={currentItems} />
 
-      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+        <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      </div>
 
       <Button
         className="button--fixed"
