@@ -8,6 +8,7 @@ import { useFinance } from "../../context/FinanceContext";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination/Pagination";
 import ExpensesSummary from "./ExpensesSummary/IncomeSummary";
+import Filters from "../../components/Filters/Filters";
 
 const Expenses = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
@@ -32,6 +33,8 @@ const Expenses = ({ isActive, setIsActive }) => {
       <Transactions title="Recent Expenses" transactions={recentTransaction} />
 
       <div>
+        <Filters type="expenses" />
+
         <Transactions title="All Expenses" transactions={currentItems} />
 
         <Pagination page={page} setPage={setPage} totalPages={totalPages} />

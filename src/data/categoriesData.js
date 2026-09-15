@@ -20,6 +20,6 @@ export const categoriesData = {
     "education",
     "travel",
     "subscriptions",
-    "Other",
+    "other",
   ],
 };
