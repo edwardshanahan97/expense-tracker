@@ -7,8 +7,9 @@ import Transactions from "../../components/Transactions/Transactions";
 import { useFinance } from "../../context/FinanceContext";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination/Pagination";
-import ExpensesSummary from "./ExpensesSummary/IncomeSummary";
+import ExpensesSummary from "./ExpensesSummary/ExpensesSummary";
 import Filters from "../../components/Filters/Filters";
+import useFilters from "../../hooks/useFilters";
 
 const Expenses = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
@@ -16,8 +17,19 @@ const Expenses = ({ isActive, setIsActive }) => {
   const expensesTransactions = finance.transactions.filter(
     (transaction) => transaction.type === "expenses",
   );
+
+  const {
+    filteredTransactions,
+    category,
+    setCategory,
+    month,
+    setMonth,
+    sort,
+    setSort,
+  } = useFilters(expensesTransactions);
+
   const { page, setPage, totalPages, currentItems } =
-    usePagination(expensesTransactions);
+    usePagination(filteredTransactions);
 
   const recentTransaction = expensesTransactions
     .slice(-5)
@@ -33,7 +45,15 @@ const Expenses = ({ isActive, setIsActive }) => {
       <Transactions title="Recent Expenses" transactions={recentTransaction} />
 
       <div>
-        <Filters type="expenses" />
+        <Filters
+          type="expenses"
+          category={category}
+          setCategory={setCategory}
+          month={month}
+          setMonth={setMonth}
+          sort={sort}
+          setSort={setSort}
+        />
 
         <Transactions title="All Expenses" transactions={currentItems} />
 

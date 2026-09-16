@@ -9,8 +9,23 @@ const useFilters = (transactions) => {
   const filteredTransactions = transactions.filter(
     (transaction) =>
       (transaction.type === selectedType || selectedType === "") &&
-      (transaction.category === category || category === ""),
+      (transaction.category === category || category === "") &&
+      (transaction.date.startsWith(month) || month === ""),
   );
+
+  filteredTransactions.sort((a, b) => {
+    if (sort === "new") {
+      return b.date.localeCompare(a.date);
+    } else if (sort === "old") {
+      return a.date.localeCompare(b.date);
+    } else if (sort === "highest") {
+      return b.amount - a.amount;
+    } else if (sort === "lowest") {
+      return a.amount - b.amount;
+    }
+
+    return 0;
+  });
 
   return {
     filteredTransactions,

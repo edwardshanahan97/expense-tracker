@@ -18,6 +18,10 @@ const AllTransactions = () => {
     filteredTransactions,
     category,
     setCategory,
+    month,
+    setMonth,
+    sort,
+    setSort,
   } = useFilters(finance.transactions);
 
   const { page, setPage, totalPages, currentItems } =
@@ -35,6 +39,10 @@ const AllTransactions = () => {
         setSelectedType={setSelectedType}
         category={category}
         setCategory={setCategory}
+        month={month}
+        setMonth={setMonth}
+        sort={sort}
+        setSort={setSort}
       />
 
       <Transactions title="Transaction History" transactions={currentItems} />

@@ -1,14 +1,20 @@
 import { categoriesData } from "../../data/categoriesData";
-
+import "./Filters.css";
 const Filters = ({
+  type,
   showType,
   selectedType,
   setSelectedType,
   category,
   setCategory,
+  month,
+  setMonth,
+  sort,
+  setSort,
 }) => {
-  const categories =
-    selectedType === ""
+  const categories = type
+    ? categoriesData[type]
+    : selectedType === ""
       ? [...categoriesData.income, ...categoriesData.expenses]
       : categoriesData[selectedType];
 
@@ -41,6 +47,20 @@ const Filters = ({
             {category}
           </option>
         ))}
+      </select>
+
+      <input
+        value={month}
+        type="month"
+        onChange={(event) => setMonth(event.target.value)}
+      />
+
+      <select value={sort} onChange={(event) => setSort(event.target.value)}>
+        <option value="">Sort By</option>
+        <option value="new">Newest</option>
+        <option value="old">Oldest</option>
+        <option value="highest">Highest</option>
+        <option value="lowest">Lowest</option>
       </select>
     </section>
   );
