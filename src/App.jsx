@@ -10,13 +10,11 @@ import AllTransactions from "./pages/AllTransactions/AllTransactions";
 
 const App = () => {
   const [isActive, setIsActive] = useState(false);
-
+  console.log("Hello-world".slice(4, 6));
   return (
     <div className="app">
       <Navbar />
-
       <Header />
-
       <Routes>
         <Route
           index
@@ -35,7 +33,6 @@ const App = () => {
 
         <Route path="/all-transaction" element={<AllTransactions />} />
       </Routes>
-
       <Toast message="Hello World" />
     </div>
   );

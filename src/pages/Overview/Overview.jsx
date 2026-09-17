@@ -5,10 +5,13 @@ import Button from "../../components/Button/Button";
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
 import { useFinance } from "../../context/FinanceContext";
 import Transactions from "../../components/Transactions/Transactions";
+import Chart from "../../components/Chart/Chart";
+import getChartData from "../../utils/getChartData";
 
 const Overview = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
   const { finance } = useFinance();
+  const chartData = getChartData(finance.transactions);
 
   const recentTransaction = finance.transactions
     .slice(-5)
@@ -28,6 +31,8 @@ const Overview = ({ isActive, setIsActive }) => {
         link="View All"
         to="/all-transaction"
       />
+
+      <Chart data={chartData} />
 
       <Button
         className="button--fixed"
