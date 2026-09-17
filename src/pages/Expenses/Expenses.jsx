@@ -10,6 +10,8 @@ import Pagination from "../../components/Pagination/Pagination";
 import ExpensesSummary from "./ExpensesSummary/ExpensesSummary";
 import Filters from "../../components/Filters/Filters";
 import useFilters from "../../hooks/useFilters";
+import getCategoryChartData from "../../utils/getCategoryChartData";
+import CategoryPieChart from "../../components/CategoryPieChart/CategoryPieChart";
 
 const Expenses = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
@@ -17,6 +19,8 @@ const Expenses = ({ isActive, setIsActive }) => {
   const expensesTransactions = finance.transactions.filter(
     (transaction) => transaction.type === "expenses",
   );
+
+  const categoryData = getCategoryChartData(expensesTransactions);
 
   const {
     filteredTransactions,
@@ -59,6 +63,8 @@ const Expenses = ({ isActive, setIsActive }) => {
 
         <Pagination page={page} setPage={setPage} totalPages={totalPages} />
       </div>
+
+      <CategoryPieChart data={categoryData} title="Expenses by Category" />
 
       <Button
         className="button--fixed"

@@ -10,6 +10,8 @@ import Pagination from "../../components/Pagination/Pagination";
 import IncomeSummary from "./IncomeSummary/IncomeSummary";
 import Filters from "../../components/Filters/Filters";
 import useFilters from "../../hooks/useFilters";
+import CategoryPieChart from "../../components/CategoryPieChart/CategoryPieChart";
+import getCategoryChartData from "../../utils/getCategoryChartData";
 
 const Income = ({ isActive, setIsActive }) => {
   const { setCurrentPage } = usePage();
@@ -26,6 +28,8 @@ const Income = ({ isActive, setIsActive }) => {
     sort,
     setSort,
   } = useFilters(incomeTransactions);
+
+  const categoryData = getCategoryChartData(incomeTransactions);
 
   const { page, setPage, totalPages, currentItems } =
     usePagination(filteredTransactions);
@@ -59,6 +63,8 @@ const Income = ({ isActive, setIsActive }) => {
 
         <Pagination page={page} setPage={setPage} totalPages={totalPages} />
       </div>
+
+      <CategoryPieChart data={categoryData} title="Income by Category" />
 
       <Button
         className="button--fixed"
