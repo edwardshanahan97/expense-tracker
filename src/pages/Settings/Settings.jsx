@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { usePage } from "../../context/PageContext";
 import { useFinance } from "../../context/FinanceContext";
+import Button from "../../components/Button/Button";
 
 const Settings = () => {
   const { setCurrentPage } = usePage();
-  const { finance, changeName, changeCurrency } = useFinance();
+  const { finance, changeName, changeCurrency, clearData } = useFinance();
 
   useEffect(() => setCurrentPage("settings"));
 
@@ -34,6 +35,8 @@ const Settings = () => {
         <option value="£">£ - Sterling</option>
         <option value="$">$ - Dollar</option>
       </select>
+
+      <Button onClick={clearData} title="Clear Transactions" />
     </main>
   );
 };

@@ -27,6 +27,8 @@ export const FinanceProvider = ({ children }) => {
     setFinance((prev) => ({ ...prev, currency: currency ? currency : "€" }));
   };
 
+  const clearData = () => setFinance((prev) => ({ ...prev, transactions: [] }));
+
   useEffect(() => {
     localStorage.setItem("finance", JSON.stringify(finance));
   }, [finance]);
@@ -71,6 +73,7 @@ export const FinanceProvider = ({ children }) => {
   return (
     <FinanceContext.Provider
       value={{
+        clearData,
         changeName,
         changeCurrency,
         finance,

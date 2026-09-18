@@ -8,11 +8,14 @@ const Button = ({
   isActive,
   setIsActive,
   form,
+  onClick,
 }) => {
   return (
     <button
       form={form}
-      onClick={setIsActive ? () => setIsActive(!isActive) : undefined}
+      onClick={
+        onClick || (setIsActive ? () => setIsActive(!isActive) : undefined)
+      }
       className={`button ${className}`}
     >
       {isMobile && <Plus color="var(--color-text-light)" />}
