@@ -21,7 +21,7 @@ const Header = () => {
       </p>
 
       <NavLink className="header__account" to="/settings">
-        {finance ? finance.name.slice(0, 2) : "?"}
+        {finance.name ? finance.name.slice(0, 2) : "NA"}
       </NavLink>
     </header>
   );

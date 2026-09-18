@@ -10,13 +10,22 @@ export const FinanceProvider = ({ children }) => {
   const { setMessage, setShowToast } = useToast();
   const localFinance = JSON.parse(localStorage.getItem("finance")) || {
     name: "",
-    currency: "EURO",
+    currency: "€",
     transactions: [],
   };
 
   const [finance, setFinance] = useState(localFinance);
 
-  const changeName = (name) => setFinance((prev) => ({ ...prev, name }));
+  const changeName = (name) => {
+    setFinance((prev) => ({ ...prev, name }));
+  };
+
+  const changeCurrency = (currency) => {
+    setShowToast(true);
+
+    setMessage(`Currency Changed`);
+    setFinance((prev) => ({ ...prev, currency: currency ? currency : "€" }));
+  };
 
   useEffect(() => {
     localStorage.setItem("finance", JSON.stringify(finance));
@@ -63,6 +72,7 @@ export const FinanceProvider = ({ children }) => {
     <FinanceContext.Provider
       value={{
         changeName,
+        changeCurrency,
         finance,
         addTransaction,
         getBalance,

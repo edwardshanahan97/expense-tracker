@@ -4,7 +4,7 @@ import { useFinance } from "../../context/FinanceContext";
 
 const Settings = () => {
   const { setCurrentPage } = usePage();
-  const { finance, changeName } = useFinance();
+  const { finance, changeName, changeCurrency } = useFinance();
 
   useEffect(() => setCurrentPage("settings"));
 
@@ -25,6 +25,15 @@ const Settings = () => {
           value={finance.name}
         />
       </div>
+
+      <select
+        value={finance.currency}
+        onChange={(event) => changeCurrency(event.target.value)}
+      >
+        <option value="€">€ - Euro</option>
+        <option value="£">£ - Sterling</option>
+        <option value="$">$ - Dollar</option>
+      </select>
     </main>
   );
 };

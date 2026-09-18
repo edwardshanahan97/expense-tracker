@@ -1,5 +1,5 @@
 import "./SummaryCard.css";
-
+import { useFinance } from "../../context/FinanceContext";
 const SummaryCard = ({
   title,
   amount,
@@ -9,6 +9,7 @@ const SummaryCard = ({
   bgColor,
   currency = true,
 }) => {
+  const { finance } = useFinance();
   return (
     <div className="summary-card">
       <div style={{ backgroundColor: bgColor }} className="summary-card__icon">
@@ -19,7 +20,7 @@ const SummaryCard = ({
         <h3 className="heading-3">{title}</h3>
 
         <h2 style={{ color }} className="heading-2">
-          {currency ? `€${amount}` : amount}
+          {currency ? `${finance.currency}${amount}` : amount}
         </h2>
 
         <p className="summary-card__message">{text}</p>
