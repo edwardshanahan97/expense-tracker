@@ -1,0 +1,157 @@
+.settings__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.settings__header p {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+}
+
+/* Settings card */
+
+.settings__card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.settings__section {
+  display: grid;
+  gap: 2.4rem;
+  padding: 2.4rem;
+}
+
+.settings__section-info h2 {
+  margin-bottom: 0.8rem;
+
+  color: var(--color-text-primary);
+  font-size: 1.6rem;
+}
+
+.settings__section-info p {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.settings__divider {
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* Fields */
+
+.settings__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.settings__field label {
+  color: var(--color-text-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.settings__field input,
+.settings__field select {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+
+  color: var(--color-text-primary);
+  background-color: #fff;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+
+  font-family: var(--font-family-main);
+  font-size: 1.4rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.settings__field input:focus,
+.settings__field select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Danger zone */
+
+.settings__danger {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 2.4rem;
+
+  background-color: var(--color-expenses-light);
+  border: 1px solid var(--color-expenses);
+  border-radius: var(--border-radius);
+}
+
+.settings__danger h2 {
+  margin-bottom: 0.8rem;
+
+  color: var(--color-expenses);
+  font-size: 1.6rem;
+}
+
+.settings__danger p {
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+/* Danger button */
+
+.button--danger {
+  width: auto;
+  padding: 1.2rem 2rem;
+
+  background-color: var(--color-expenses);
+  color: #fff;
+
+  white-space: nowrap;
+}
+
+.button--danger:hover {
+  filter: brightness(0.85);
+}
+
+/* Desktop */
+
+@media (min-width: 768px) {
+  .settings__section {
+    grid-template-columns: minmax(20rem, 1fr) 2fr;
+    align-items: center;
+
+    gap: 4.8rem;
+    padding: 3.2rem;
+  }
+
+  .settings__danger {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 4rem;
+    padding: 2.4rem 3.2rem;
+  }
+
+  .settings__danger > div {
+    max-width: 60rem;
+  }
+
+  .settings__danger .button {
+    width: auto;
+    flex-shrink: 0;
+  }
+}

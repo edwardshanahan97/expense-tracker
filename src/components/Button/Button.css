@@ -27,6 +27,16 @@
   width: auto;
 }
 
+.button--danger {
+  background-color: var(--color-expenses);
+  color: #fff;
+}
+
+.button--danger:hover {
+  background-color: var(--color-expenses);
+  filter: opacity(0.9);
+}
+
 @media (min-width: 768px) {
   .button--fixed {
     display: none;
