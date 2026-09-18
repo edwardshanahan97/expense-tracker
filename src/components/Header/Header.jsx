@@ -3,9 +3,11 @@ import { Calendar } from "lucide-react";
 import { usePage } from "../../context/PageContext";
 import { NavLink } from "react-router-dom";
 import formatDate from "../../utils/formatDate";
+import { useFinance } from "../../context/FinanceContext";
 
 const Header = () => {
   const { currentPage } = usePage();
+  const { finance } = useFinance();
   const date = formatDate(new Date());
 
   return (
@@ -19,7 +21,7 @@ const Header = () => {
       </p>
 
       <NavLink className="header__account" to="/settings">
-        ED
+        {finance ? finance.name.slice(0, 2) : "?"}
       </NavLink>
     </header>
   );

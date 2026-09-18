@@ -7,6 +7,7 @@ import Income from "./pages/Income/Income";
 import Expenses from "./pages/Expenses/Expenses";
 import Toast from "./components/Toast/Toast";
 import AllTransactions from "./pages/AllTransactions/AllTransactions";
+import Settings from "./pages/Settings/Settings";
 
 const App = () => {
   const [isActive, setIsActive] = useState(false);
@@ -32,6 +33,8 @@ const App = () => {
         />
 
         <Route path="/all-transaction" element={<AllTransactions />} />
+
+        <Route path="/settings" element={<Settings />} />
       </Routes>
       <Toast message="Hello World" />
     </div>

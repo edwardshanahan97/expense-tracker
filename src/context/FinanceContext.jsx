@@ -16,6 +16,8 @@ export const FinanceProvider = ({ children }) => {
 
   const [finance, setFinance] = useState(localFinance);
 
+  const changeName = (name) => setFinance((prev) => ({ ...prev, name }));
+
   useEffect(() => {
     localStorage.setItem("finance", JSON.stringify(finance));
   }, [finance]);
@@ -60,6 +62,7 @@ export const FinanceProvider = ({ children }) => {
   return (
     <FinanceContext.Provider
       value={{
+        changeName,
         finance,
         addTransaction,
         getBalance,
