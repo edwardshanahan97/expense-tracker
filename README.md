@@ -1,16 +1,93 @@
-# React + Vite
+# Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive expense tracking application built with React for managing income and expenses, viewing financial summaries, filtering transactions, and visualising spending and income data.
 
-Currently, two official plugins are available:
+This project was built as a practical React project to strengthen my understanding of state management, reusable components, data transformation, filtering, pagination, and working with third-party libraries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Add income and expense transactions
+- View current balance, total income, and total expenses
+- View monthly financial summaries
+- Separate Income and Expenses pages
+- View recent and complete transaction history
+- Filter transactions by:
+  - Type
+  - Category
+  - Month
+- Sort transactions by:
+  - Newest
+  - Oldest
+  - Highest amount
+  - Lowest amount
+- Paginated transaction lists
+- Monthly income vs expenses chart
+- Monthly income breakdown by category
+- Monthly expense breakdown by category
+- Category pie charts with percentage breakdowns
+- Responsive layout for desktop and mobile
+- Persistent data using localStorage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built With
 
-## Expanding the ESLint configuration
+- React
+- JavaScript
+- CSS
+- React Router
+- React Context API
+- Recharts
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Charts
+
+The dashboard includes a yearly overview comparing income and expenses across each month.
+
+The Income and Expenses pages include pie charts showing the percentage breakdown of transactions by category for the current month.
+
+## What I Learned
+
+Building this project gave me practical experience with:
+
+- Managing application state with React Context
+- Creating reusable React components
+- Building custom hooks
+- Filtering and sorting data
+- Using `reduce()` to transform and group transaction data
+- Working with dates in JavaScript
+- Implementing pagination
+- Persisting application state with localStorage
+- Creating responsive layouts with CSS Grid
+- Integrating and configuring a third-party charting library
+- Structuring a larger React application across components, hooks, contexts, and utilities
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/edwardshanahan97/expense-tracker.git
+```
+
+Navigate into the project:
+
+```bash
+cd expense-tracker
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Project Status
+
+The project is currently in development.
+
+Remaining work includes application settings, transaction deletion, final responsive testing, and deployment.
