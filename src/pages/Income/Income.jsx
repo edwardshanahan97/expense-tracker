@@ -38,7 +38,7 @@ const Income = ({ isActive, setIsActive }) => {
     .slice(-5)
     .sort((a, b) => b.date.localeCompare(a.date));
 
-  useEffect(() => setCurrentPage("income"), []);
+  useEffect(() => setCurrentPage("income"), [setCurrentPage]);
 
   return (
     <main className="grid">

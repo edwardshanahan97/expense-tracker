@@ -27,7 +27,7 @@ const AllTransactions = () => {
   const { page, setPage, totalPages, currentItems } =
     usePagination(filteredTransactions);
 
-  useEffect(() => setCurrentPage("All Transaction"), []);
+  useEffect(() => setCurrentPage("All Transaction"), [setCurrentPage]);
 
   return (
     <main>

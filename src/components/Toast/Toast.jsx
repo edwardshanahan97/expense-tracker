@@ -13,7 +13,7 @@ const Toast = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [showToast]);
+  }, [setShowToast]);
   return (
     <div className={`toast ${showToast ? "active" : ""}`}>
       <p className="toast__message">{message}</p>

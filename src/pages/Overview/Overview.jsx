@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePage } from "../../context/PageContext";
 import OverviewSummary from "./OverviewSummary/OverviewSummary";
 import Button from "../../components/Button/Button";
@@ -17,7 +17,7 @@ const Overview = ({ isActive, setIsActive }) => {
     .slice(-5)
     .sort((a, b) => b.date.localeCompare(a.date));
 
-  useEffect(() => setCurrentPage("overview"), []);
+  useEffect(() => setCurrentPage("overview"), [setCurrentPage]);
 
   return (
     <main className="grid">

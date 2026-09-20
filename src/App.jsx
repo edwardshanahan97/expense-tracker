@@ -11,7 +11,7 @@ import Settings from "./pages/Settings/Settings";
 
 const App = () => {
   const [isActive, setIsActive] = useState(false);
-  console.log("Hello-world".slice(4, 6));
+
   return (
     <div className="app">
       <Navbar />

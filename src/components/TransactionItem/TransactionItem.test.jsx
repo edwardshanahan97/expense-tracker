@@ -1,4 +1,4 @@
-import { test, expect, afterEach, vi } from "vitest";
+import { test, expect, afterEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ToastProvider } from "../../context/ToastContext";
@@ -16,7 +16,7 @@ afterEach(() => {
 const TestWrapper = () => {
   const { setCurrentPage } = usePage();
 
-  useEffect(() => setCurrentPage("income"), []);
+  useEffect(() => setCurrentPage("income"), [setCurrentPage]);
 
   return (
     <>

@@ -39,7 +39,7 @@ const Expenses = ({ isActive, setIsActive }) => {
     .slice(-5)
     .sort((a, b) => b.date.localeCompare(a.date));
 
-  useEffect(() => setCurrentPage("expenses"), []);
+  useEffect(() => setCurrentPage("expenses"), [setCurrentPage]);
   return (
     <main className="grid">
       <ExpensesSummary />

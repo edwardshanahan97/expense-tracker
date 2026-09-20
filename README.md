@@ -27,6 +27,9 @@ This project was built as a practical React project to strengthen my understandi
 - Category pie charts with percentage breakdowns
 - Responsive layout for desktop and mobile
 - Persistent data using localStorage
+- Delete transactions
+- Customise account name and currency
+- Clear stored application data
 
 ## Built With
 
@@ -88,6 +91,8 @@ npm run dev
 
 ## Project Status
 
-The project is currently in development.
+The Expense Tracker is feature complete.
 
-Remaining work includes application settings, transaction deletion, final responsive testing, and deployment.
+Core functionality, filtering, pagination, data visualisation, settings, transaction deletion, localStorage persistence, and automated tests are implemented.
+
+Final responsive testing and deployment remain.

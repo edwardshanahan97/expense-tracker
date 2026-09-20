@@ -16,7 +16,7 @@ afterEach(() => {
 const TestWrapper = () => {
   const { setCurrentPage } = usePage();
   const setIsActive = vi.fn();
-  useEffect(() => setCurrentPage("overview"), []);
+  useEffect(() => setCurrentPage("overview"), [setCurrentPage]);
 
   return (
     <>

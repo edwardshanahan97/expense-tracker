@@ -13,7 +13,6 @@ const TransactionItem = ({
 }) => {
   const { finance, removeTransaction } = useFinance();
 
-  console.log("TRANSACTION:", description, "RECENT:", isRecent);
   return (
     <li className="transactions-item">
       {type === "income" ? (
