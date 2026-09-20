@@ -145,7 +145,7 @@ const AddTransaction = ({ isActive, setIsActive }) => {
           <input
             id="description"
             type="text"
-            placeholder="eg. Salery"
+            placeholder="eg. Salary"
             className={`add-transaction__input ${error.description && "error"}`}
             name="description"
             required
