@@ -7,6 +7,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "../Chart/Chart.css";
+import { useFinance } from "../../context/FinanceContext";
 
 const COLORS = [
   "var(--color-chart-blue)",
@@ -22,6 +23,8 @@ const CategoryPieChart = ({ data, title }) => {
     ...item,
     fill: COLORS[index % COLORS.length],
   }));
+
+  const { finance } = useFinance();
 
   const renderSlice = (props) => (
     <Sector {...props} fill={props.payload.fill} />
@@ -44,7 +47,7 @@ const CategoryPieChart = ({ data, title }) => {
             label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
           />
 
-          <Tooltip formatter={(value) => `€${value}`} />
+          <Tooltip formatter={(value) => `${finance.currency}${value}`} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

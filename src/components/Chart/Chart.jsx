@@ -9,8 +9,11 @@ import {
   CartesianGrid,
 } from "recharts";
 import "./Chart.css";
+import { useFinance } from "../../context/FinanceContext";
 
 const Chart = ({ data }) => {
+  const { finance } = useFinance();
+
   return (
     <section className="chart">
       <h2 className="chart__title">Income vs Expenses</h2>
@@ -21,7 +24,10 @@ const Chart = ({ data }) => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="monthName" />
-          <YAxis width={45} tickFormatter={(value) => `€${value}`} />
+          <YAxis
+            width={45}
+            tickFormatter={(value) => `${finance.currency}${value}`}
+          />
 
           <Tooltip />
           <Legend itemSorter={() => 1} />
