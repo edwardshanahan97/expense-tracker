@@ -39,6 +39,7 @@ const TransactionItem = ({
         <button
           onClick={() => removeTransaction(id)}
           className="transaction-item__remove"
+          aria-label="Delete transaction"
         >
           <Trash />
         </button>

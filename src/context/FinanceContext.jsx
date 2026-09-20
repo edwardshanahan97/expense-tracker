@@ -49,6 +49,10 @@ export const FinanceProvider = ({ children }) => {
       ...prev,
       transactions: prev.transactions.filter((item) => item.id !== id),
     }));
+
+    setShowToast(true);
+
+    setMessage(`Transaction removed`);
   };
 
   const getBalance = () => {
