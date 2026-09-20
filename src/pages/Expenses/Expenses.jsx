@@ -46,7 +46,11 @@ const Expenses = ({ isActive, setIsActive }) => {
 
       <AddTransaction isActive={isActive} setIsActive={setIsActive} />
 
-      <Transactions title="Recent Expenses" transactions={recentTransaction} />
+      <Transactions
+        title="Recent Expenses"
+        transactions={recentTransaction}
+        isRecent={true}
+      />
 
       <div>
         <Filters

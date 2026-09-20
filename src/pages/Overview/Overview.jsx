@@ -30,6 +30,7 @@ const Overview = ({ isActive, setIsActive }) => {
         transactions={recentTransaction}
         link="View All"
         to="/all-transaction"
+        isRecent={true}
       />
 
       <Chart data={chartData} />

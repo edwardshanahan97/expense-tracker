@@ -44,6 +44,13 @@ export const FinanceProvider = ({ children }) => {
     setMessage(`${transaction.category} added`);
   };
 
+  const removeTransaction = (id) => {
+    setFinance((prev) => ({
+      ...prev,
+      transactions: prev.transactions.filter((item) => item.id !== id),
+    }));
+  };
+
   const getBalance = () => {
     const totalIncome = finance.transactions
       .filter((transaction) => transaction.type === "income")
@@ -78,6 +85,7 @@ export const FinanceProvider = ({ children }) => {
         changeCurrency,
         finance,
         addTransaction,
+        removeTransaction,
         getBalance,
         thisMonthIncome,
         thisMonthExpenses,

@@ -1,7 +1,19 @@
 import "./TransactionItem.css";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp, Trash } from "lucide-react";
+import { useFinance } from "../../context/FinanceContext";
 
-const TransactionItem = ({ id, type, description, category, amount, date }) => {
+const TransactionItem = ({
+  id,
+  type,
+  description,
+  category,
+  amount,
+  date,
+  isRecent,
+}) => {
+  const { finance, removeTransaction } = useFinance();
+
+  console.log("TRANSACTION:", description, "RECENT:", isRecent);
   return (
     <li className="transactions-item">
       {type === "income" ? (
@@ -18,7 +30,19 @@ const TransactionItem = ({ id, type, description, category, amount, date }) => {
 
       <span className="transactions-item__date">{date}</span>
 
-      <span className="transactions-item__amount">€{amount}</span>
+      <span className="transactions-item__amount">
+        {finance.currency}
+        {amount}
+      </span>
+
+      {!isRecent && (
+        <button
+          onClick={() => removeTransaction(id)}
+          className="transaction-item__remove"
+        >
+          <Trash />
+        </button>
+      )}
     </li>
   );
 };

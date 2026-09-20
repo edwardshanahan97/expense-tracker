@@ -3,7 +3,9 @@ import TransactionItem from "../../components/TransactionItem/TransactionItem";
 import formatDate from "../../utils/formatDate";
 import { Link } from "react-router-dom";
 
-const Transactions = ({ title, transactions, link, to }) => {
+const Transactions = ({ title, id, transactions, link, to, isRecent }) => {
+  console.log("TRANSACTIONS:", title, "RECENT:", isRecent);
+
   return (
     <section className="transactions">
       <div className="transactions__header">
@@ -23,6 +25,7 @@ const Transactions = ({ title, transactions, link, to }) => {
               amount={amount}
               category={category}
               date={formatDate(date)}
+              isRecent={isRecent}
             />
           ),
         )}
